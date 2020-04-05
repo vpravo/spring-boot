@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav th:fragment="nav">
+        <span th:text="${user.email}"></span>
+        <span>with:</span>
+        <span th:each="role : ${user.roles}">
+                <a th:text="${role.toString()}">
+                </a>
+        </span>
+        <a href="/logout">logout</a>
+    </nav>
+</body>
+</html>

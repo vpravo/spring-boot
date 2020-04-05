@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <form th:if="${userEdit != null}" method="post" action="/admin/edit" th:fragment="form">
+        <input th:if="${userEdit != null}" type="hidden" name="id" th:value="${userEdit.id}"/>
+        <p><b>First name</b><br>
+            <input required type="text" name="first_name" th:value="${userEdit.firstName}"/>
+        <p><b>Last name</b><br>
+            <input required type="text" name="last_name" th:value="${userEdit.lastName}">
+        <p><b>Age</b><br>
+            <input required type="number" name="age" th:value="${userEdit.age}">
+        <p><b>Email</b><br>
+            <input required type="text" name="email" th:value="${userEdit.email}">
+        <p><b>Password</b><br>
+            <input required type="text" name="password" th:value="${userEdit.password}">
+        <p><b>Role</b><br>
+        <p th:if="${isAdminEdit == true}"><input type="checkbox" value="ADMIN" name="ADMIN" checked/>ADMIN</p>
+        <p th:if="${isAdminEdit == false}"><input type="checkbox" value="ADMIN" name="ADMIN"/>ADMIN</p>
+        <p th:if="${userEdit != null}"><input type="checkbox" value="USER" name="USER" checked/>USER</p>
+        <input th:if="${userEdit == null}" type="submit" value="Add new user"/>
+        <input th:if="${userEdit != null}" type="submit" value="Edit user"/>
+    </form>
+    <form th:if="${userEdit == null}" method="post" action="/admin/new" th:fragment="form">
+        <input th:if="${userEdit != null}" type="hidden" name="id"/>
+        <p><b>First name</b><br>
+            <input required type="text" name="first_name"/>
+        <p><b>Last name</b><br>
+            <input required type="text" name="last_name"/>
+        <p><b>Age</b><br>
+            <input required type="number" name="age"/>
+        <p><b>Email</b><br>
+            <input required type="text">
+        <p><b>Password</b><br>
+            <input required type="text" name="password">
+        <p><b>Role</b><br>
+        <p><input type="checkbox" value="ADMIN" name="ADMIN">ADMIN</p>
+        <p><input type="checkbox" value="USER" name="USER">USER</p>
+        <input th:if="${userEdit == null}" type="submit" value="Add new user"/>
+        <input th:if="${userEdit != null}" type="submit" value="Edit user"/>
+    </form>
+</body>
+</html>

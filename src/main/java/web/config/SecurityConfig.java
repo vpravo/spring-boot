@@ -23,15 +23,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    /*@Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    };*/
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        //auth.inMemoryAuthentication().withUser("ADMIN").password("ADMIN").roles("ADMIN");
         auth.userDetailsService(userDetailsService);
     }
 

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<aside th:fragment="menu">
+    <div th:if="${isAdmin == true}">
+            <a href="/admin">ADMIN</a>
+    </div>
+    <div>
+        <a href="/user">USER</a>
+    </div>
+</aside>
+</body>
+</html>
